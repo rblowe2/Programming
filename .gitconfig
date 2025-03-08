@@ -1,0 +1,5 @@
+[user]
+	name = Ray
+	email = rblowe2@gmail.com
+[core]
+	sshCommand = ssh -i ~/.ssh/id_rsa -o IdentitiesOnly=yes
