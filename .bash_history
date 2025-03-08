@@ -98,3 +98,29 @@ git branch -m main
 git push --set-upstream origin main
 git push origin main --force
 exit
+rm -rf ~/.ssh/id_rsa ~/.ssh/id_rsa.pub  # Deletes old SSH keys
+ssh-keygen -t rsa -b 4096 -C "your-email@example.com"
+rm -rf ~/.ssh/id_rsa ~/.ssh/id_rsa.pub  # Deletes old SSH keys
+ssh-keygen -t rsa -b 4096 -C "your-email@example.com"
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh  # Secure the directory
+ssh-keygen -t rsa -b 4096 -C "your-email@example.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub
+ssh -T git@github.com
+exit
+rm -rf .git
+git init
+git remote add origin git@github.com:rblowe2/Programming.git
+nano .gitignore
+git rm --cached -r .ssh/
+git rm --cached -r .aws/
+git rm --cached -r node_modules/
+git rm --cached -r *.log
+git add --all
+git commit -m "Reinitializing repository with cleaned files"
+git branch -M main
+git push --force origin main
+git pull origin main
+exit
