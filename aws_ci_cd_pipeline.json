@@ -1,0 +1,37 @@
+{
+  "pipeline": {
+    "name": "AI-Business-Solutions",
+    "roleArn": "arn:aws:iam::571600833037:role/service-role/AWSCodePipelineServiceRole",
+    "stages": [
+      {
+        "name": "Source",
+        "actions": [
+          {
+            "name": "SourceAction",
+            "actionTypeId": {
+              "category": "Source",
+              "owner": "AWS",
+              "provider": "S3",
+              "version": "1"
+            },
+            "configuration": {
+              "S3Bucket": "your-s3-bucket-name",
+              "S3ObjectKey": "source.zip"
+            },
+            "outputArtifacts": [
+              {
+                "name": "SourceOutput"
+              }
+            ],
+            "runOrder": 1
+          }
+        ]
+      }
+    ],
+    "artifactStore": {
+      "type": "S3",
+      "location": "your-s3-bucket-name"
+    }
+  }
+}
+

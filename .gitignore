@@ -1,0 +1,14 @@
+# Ignore SSH keys
+.ssh/id_rsa
+.ssh/id_rsa.pub
+
+# Ignore node_modules
+node_modules/
+
+# Ignore logs
+npm-debug.log
+*.log
+
+# Ignore AWS credentials
+.aws/
+
