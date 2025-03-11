@@ -1,0 +1,23 @@
+name: Deploy AI Agent
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y awscli
+
+      - name: Deploy to Lambda
+        run: |
+          zip -r ai-autonomous-agent.zip .
+          aws lambda update-function-code --function-name ai-autonomous-agent --zip-file fileb://ai-autonomous-agent.zip
